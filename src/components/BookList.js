@@ -37,14 +37,7 @@ const BookList = ({ books, loadMoreBooks, totalItems }) => {
       ) : (
         <p>No books found.</p>
       )}
-      {/* {totalItems > (books ? books.length : 0) && (
-        <button
-          onClick={loadMoreBooks}
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors"
-        >
-          Load More
-        </button>
-      )} */}
+      
       {selectedBook && <BookDetail book={selectedBook} onClose={closeBookDetail} />}
     </div>
   );

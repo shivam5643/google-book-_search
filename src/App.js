@@ -69,7 +69,7 @@ const App = () => {
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen">
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Google Books Search</h1>
+        <h1 className="md:text-5xl text-3xl font-bold mb-4 p-4 text-center">Google Books Search</h1>
         <SearchBar setQuery={setQuery} />
         <Filter setCategory={setCategory} setStartDate={setStartDate} setEndDate={setEndDate} />
         <BookList books={books} loadMoreBooks={loadMoreBooks} totalItems={totalItems} />
@@ -77,7 +77,7 @@ const App = () => {
           <div className="flex justify-center mt-4">
             <button
               onClick={loadMoreBooks}
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors"
+              className="bg-blue-500 hover:bg-blue-800 text-white py-2 px-4 rounded text-xl transition-colors"
             >
               Load More
             </button>

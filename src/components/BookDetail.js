@@ -13,7 +13,7 @@ const BookDetail = ({ book, onClose }) => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white p-8 w-1/2 h-[500px] overflow-y-auto rounded-lg shadow-lg relative">
+      <div className="bg-white p-4 sm:p-8 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-h-full overflow-y-auto rounded-lg shadow-lg relative">
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
           ✖
         </button>

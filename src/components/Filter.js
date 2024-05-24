@@ -16,8 +16,8 @@ const Filter = ({ setCategory, setStartDate, setEndDate }) => {
 
   return (
     <div className="mb-8">
-      <div className="mb-4">
-        <label htmlFor="category" className="mr-2">
+      <div className="mb-4 flex flex-col sm:flex-row">
+        <label htmlFor="category" className="mr-2 mb-2 sm:mb-0">
           Filter by Category:
         </label>
         <select
@@ -32,8 +32,8 @@ const Filter = ({ setCategory, setStartDate, setEndDate }) => {
           {/* Add more categories as needed */}
         </select>
       </div>
-      <div className="mb-4">
-        <label htmlFor="startDate" className="mr-2">
+      <div className="mb-4 flex flex-col sm:flex-row">
+        <label htmlFor="startDate" className="mr-2 mb-2 sm:mb-0">
           Start Date:
         </label>
         <input
@@ -42,7 +42,7 @@ const Filter = ({ setCategory, setStartDate, setEndDate }) => {
           onChange={handleStartDateChange}
           className="border border-gray-400 p-2 cursor-pointer bg-gray-200 text-black"
         />
-        <label htmlFor="endDate" className="ml-4 mr-2">
+        <label htmlFor="endDate" className="ml-4 mr-2 mb-2 sm:mb-0">
           End Date:
         </label>
         <input
