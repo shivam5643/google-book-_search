@@ -2,16 +2,28 @@
 import React from 'react';
 
 const Filter = ({ setCategory, setStartDate, setEndDate }) => {
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  };
+
   return (
-    <div>
+    <div className="mb-8">
       <div className="mb-4">
         <label htmlFor="category" className="mr-2">
           Filter by Category:
         </label>
         <select
           id="category"
-          onChange={(e) => setCategory(e.target.value)}
-          className="border border-gray-400 p-2"
+          onChange={handleCategoryChange}
+          className="border border-gray-400 p-2 bg-gray-200 cursor-pointer text-black"
         >
           <option value="">All</option>
           <option value="Fiction">Fiction</option>
@@ -27,8 +39,8 @@ const Filter = ({ setCategory, setStartDate, setEndDate }) => {
         <input
           type="date"
           id="startDate"
-          onChange={(e) => setStartDate(e.target.value)}
-          className="border border-gray-400 p-2"
+          onChange={handleStartDateChange}
+          className="border border-gray-400 p-2 cursor-pointer bg-gray-200 text-black"
         />
         <label htmlFor="endDate" className="ml-4 mr-2">
           End Date:
@@ -36,8 +48,8 @@ const Filter = ({ setCategory, setStartDate, setEndDate }) => {
         <input
           type="date"
           id="endDate"
-          onChange={(e) => setEndDate(e.target.value)}
-          className="border border-gray-400 p-2"
+          onChange={handleEndDateChange}
+          className="border border-gray-400 p-2 cursor-pointer text-black bg-gray-200"
         />
       </div>
     </div>

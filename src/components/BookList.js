@@ -14,26 +14,37 @@ const BookList = ({ books, loadMoreBooks, totalItems }) => {
   };
 
   return (
-    <div>
-      <p className="text-gray-600 mb-2">Total Books Found: {totalItems}</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {books.map((book) => (
-          <div key={book.id} className="border p-4 rounded-lg cursor-pointer" onClick={() => openBookDetail(book)}>
-            <img
-              src={book.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/150'}
-              alt={book.volumeInfo.title}
-              className="w-full h-40 object-cover mb-2"
-            />
-            <h2 className="text-lg font-semibold mb-2">{book.volumeInfo.title}</h2>
-            <p className="text-gray-600">{book.volumeInfo.authors?.join(', ')}</p>
-          </div>
-        ))}
-      </div>
-      {totalItems > books.length && (
-        <button onClick={loadMoreBooks} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">
+    <div className="text-gray-200">
+      <p className="mb-2">Total Books Found: {totalItems}</p>
+      {books && books.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {books.map((book) => (
+            <div
+              key={book.id}
+              className="border border-gray-700 bg-gray-800 p-4 rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => openBookDetail(book)}
+            >
+              <img
+                src={book.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/150'}
+                alt={book.volumeInfo.title}
+                className="w-full h-40 object-cover mb-2 rounded"
+              />
+              <h2 className="text-lg font-semibold mb-2 text-gray-100">{book.volumeInfo.title}</h2>
+              <p className="text-gray-400">{book.volumeInfo.authors?.join(', ')}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No books found.</p>
+      )}
+      {/* {totalItems > (books ? books.length : 0) && (
+        <button
+          onClick={loadMoreBooks}
+          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors"
+        >
           Load More
         </button>
-      )}
+      )} */}
       {selectedBook && <BookDetail book={selectedBook} onClose={closeBookDetail} />}
     </div>
   );

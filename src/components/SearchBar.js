@@ -16,7 +16,7 @@ const SearchBar = ({ setQuery }) => {
         placeholder="Search for books..."
         value={input}
         onChange={handleChange}
-        className="border border-gray-400 p-2 w-full"
+        className="border border-gray-400 p-2 w-1/2 rounded-md text-black"
       />
     </div>
   );

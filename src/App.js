@@ -42,7 +42,7 @@ const App = () => {
         queryString += `&after=${startDate}&before=${endDate}`;
       }
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?${queryString}`);
-      setBooks([...response.data.items]);
+      setBooks(response.data.items);
       setTotalItems(response.data.totalItems);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -67,12 +67,23 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Google Books Search</h1>
-      <SearchBar setQuery={setQuery} />
-      <Filter setCategory={setCategory} setStartDate={setStartDate} setEndDate={setEndDate} />
-      <BookList books={books} loadMoreBooks={loadMoreBooks} totalItems={totalItems} />
-      
+    <div className="bg-gray-900 text-gray-200 min-h-screen">
+      <div className="container mx-auto p-4">
+        <h1 className="text-3xl font-bold mb-4">Google Books Search</h1>
+        <SearchBar setQuery={setQuery} />
+        <Filter setCategory={setCategory} setStartDate={setStartDate} setEndDate={setEndDate} />
+        <BookList books={books} loadMoreBooks={loadMoreBooks} totalItems={totalItems} />
+        {totalItems > (books ? books.length : 0) && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={loadMoreBooks}
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors"
+            >
+              Load More
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
